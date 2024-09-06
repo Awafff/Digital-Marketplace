@@ -4,53 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geser Tombol</title>
+    <title>Daftar Tombol</title>
     <style>
-        .slider-button {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
+        .button-list {
+            list-style-type: none;
+            padding: 0;
         }
-        .slider-button input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+        .button-list li {
+            margin: 10px 0;
         }
-        .slider {
-            position: absolute;
+        .button-list button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
             cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
         }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
+        .button-list button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <label class="slider-button">
-        <input type="checkbox">
-        <span class="slider"></span>
-    </label>
+    <ul class="button-list">
+        <li><button>Tombol 1</button></li>
+        <li><button>Tombol 2</button></li>
+        <li><button>Tombol 3</button></li>
+    </ul>
 </body>
 </html>
