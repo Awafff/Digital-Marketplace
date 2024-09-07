@@ -1,73 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tombol Geser</title>
+    <title>Game Menghindar</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+        }
+        canvas {
+            border: 1px solid #333;
+            background-color: #fff;
         }
         h1 {
             color: #333;
         }
-        .slider-container {
-            margin: 20px 0;
-        }
-        .slider {
-            width: 100%;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 15px;
-            background: #ddd;
-            border-radius: 5px;
-            outline: none;
-        }
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            height: 25px;
-            width: 25px;
-            border-radius: 50%;
-            background: #4CAF50;
-            cursor: pointer;
-        }
-        .slider::-moz-range-thumb {
-            height: 25px;
-            width: 25px;
-            border-radius: 50%;
-            background: #4CAF50;
-            cursor: pointer;
-        }
-        .value {
-            font-size: 18px;
-            margin: 10px 0;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tombol Geser Demo</h1>
-    </header>
-    <main>
-        <div class="slider-container">
-            <input type="range" min="0" max="100" value="50" class="slider" id="mySlider">
-            <div class="value">Nilai: <span id="sliderValue">50</span></div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Monica. Semua hak dilindungi.</p>
-    </footer>
+    <h1>Game Menghindar</h1>
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+    <div>
+        <button onclick="startGame()">Mulai Permainan</button>
+    </div>
+    <p id="score">Skor: 0</p>
 
     <script>
-        const slider = document.getElementById('mySlider');
-        const sliderValue = document.getElementById('sliderValue');
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
 
-        slider.oninput = function() {
-            sliderValue.innerHTML = this.value;
+        let player = { x: 170, y: 540, width: 40, height: 40 };
+        let obstacles = [];
+        let score = 0;
+        let isGameOver = false;
+
+        function startGame() {
+            score = 0;
+            obstacles = [];
+            isGameOver = false;
+            document.getElementById('score').innerText = "Skor: 0";
+            player.x = 170;
+            player.y = 540;
+
+            requestAnimationFrame(gameLoop);
+            setInterval(createObstacle, 1000);
+            document.addEventListener('keydown', movePlayer);
+        }
+
+        function gameLoop() {
+            if (!isGameOver) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawPlayer();
+                updateObstacles();
+                drawObstacles();
+                checkCollision();
+                score++;
+                document.getElementById('score').innerText = "Skor: " + score;
+                requestAnimationFrame(gameLoop);
+            } else {
+                ctx.font = "30px Arial";
+                ctx.fillText("Game Over!", 130, canvas.height / 2);
+                ctx.fillText("Skor Akhir: " + score, 130, canvas.height / 2 + 50);
+            }
+        }
+
+        function drawPlayer() {
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+        }
+
+        function createObstacle() {
+            const obstacleX = Math.floor(Math.random() * (canvas.width - 40));
+            obstacles.push({ x: obstacleX, y: 0, width: 40, height: 40 });
+        }
+
+        function drawObstacles() {
+            ctx.fillStyle = '#FF0000';
+            obstacles.forEach(obstacle => {
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            });
+        }
+
+        function updateObstacles() {
+            obstacles.forEach(obstacle => {
+                obstacle.y += 5; // kecepatan jatuh
+            });
+            obstacles = obstacles.filter(obstacle => obstacle.y < canvas.height); // hapus yang keluar layar
+        }
+
+        function movePlayer(event) {
+            if (event.key === 'ArrowLeft' && player.x > 0) {
+                player.x -= 20;
+            } else if (event.key === 'ArrowRight' && player.x < canvas.width - player.width) {
+                player.x += 20;
+            }
+        }
+
+        function checkCollision() {
+            for (const obstacle of obstacles) {
+                if (
+                    player.x < obstacle.x + obstacle.width &&
+                    player.x + player.width > obstacle.x &&
+                    player.y < obstacle.y + obstacle.height &&
+                    player.y + player.height > obstacle.y
+                ) {
+                    isGameOver = true;
+                }
+            }
         }
     </script>
 </body>
