@@ -1,69 +1,85 @@
+html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Jualan</title>
+    <title>Game Tebak Angka</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
             text-align: center;
+            margin: 20px;
         }
-        .container {
-            padding: 2rem;
+        h1 {
+            color: #333;
         }
-        .product {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background-color: #fff;
+        .input-container {
+            margin: 20px 0;
         }
-        .product img {
-            max-width: 100%;
+        input[type="number"] {
+            padding: 10px;
+            width: 50px;
         }
-        .product h2 {
-            margin-top: 0;
-        }
-        .product p {
-            color: black;
-        }
-        .product button {
-            background-color: #28a745;
+        button {
+            padding: 10px 15px;
             color: #fff;
-            border: black;
-            padding: 0.5rem 1rem;
+            background-color: #4CAF50;
+            border: none;
             cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin: 20px 0;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Selamat Datang di Toko Online Kami!</h1>
+        <h1>Game Tebak Angka</h1>
+        <p>Tebak angka antara 1 hingga 100!</p>
     </header>
-    <div class="container">
-        <div class="product">
-            <img src="https://rammpntxxx-up.hf.space/file/image-qqqtgc6s16j.jpg" alt="Produk 1">
-            <h2>VPS 1GB</h2>
-            <p>RAM : 1000/1GB</p>
-            <P>DISK : 1000/1GB</P>
-            <p>CPU : 1 CORE</p>
-            <p>HARGA : RP 15.000</p>
-            <a href="https://wa.me"><button>PESAN SEKARANG</button></a>           
+    <main>
+        <div class="input-container">
+            <input type="number" id="userGuess" min="1" max="100">
+            <button onclick="checkGuess()">Tebak</button>
         </div>
-        <div class="product">
-            <img src="https://rammpntxxx-up.hf.space/file/image-qqqtgc6s16j.jpg" alt="Produk 2">
-            <h2>VPS RAM 2GB</h2>
-            <p>RAM : 2000/1GB</p>
-            <P>DISK : 2000/1GB</P>
-            <p>CPU : 1 CORE</p>
-            <p>HARGA : RP 20.000</p>
-            <a href="https://wa.me"><button>PESAN SEKARANG</button></a>
-            
+        <div class="message" id="message"></div>
+        <button onclick="resetGame()">Main Lagi</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Monica. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('userGuess').value);
+            const message = document.getElementById('message');
+            attempts++;
+
+            if (userGuess === randomNumber) {
+                message.innerHTML = `Selamat! Angka yang benar adalah ${randomNumber}. Anda menebak dalam ${attempts} kali percobaan.`;
+            } else if (userGuess < randomNumber) {
+                message.innerHTML = 'Terlalu rendah! Coba lagi.';
+            } else if (userGuess > randomNumber) {
+                message.innerHTML = 'Terlalu tinggi! Coba lagi.';
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('userGuess').value = '';
+        }
+    </script>
+</body>
+</html>
