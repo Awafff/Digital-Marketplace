@@ -3,75 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Profil Pengguna</title>
+    <title>Game Tebak Angka</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
             margin: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
             text-align: center;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
+        h1 {
             color: #333;
         }
-        .profile-info {
-            margin: 20px 0;
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .profile-info p {
-            margin: 5px 0;
-        }
-        .nav-links {
-            margin-top: 30px;
-        }
-        .nav-links a {
-            display: inline-block;
-            margin: 10px;
+        button {
             padding: 10px 15px;
             color: white;
             background-color: #4CAF50;
+            border: none;
             border-radius: 5px;
-            text-decoration: none;
+            cursor: pointer;
         }
-        .nav-links a:hover {
+        button:hover {
             background-color: #45a049;
+        }
+        .message {
+            margin: 20px 0;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
+    <h1>Game Tebak Angka</h1>
+    <p>Tebak angka antara 1 dan 100!</p>
+    <input type="number" id="userGuess" placeholder="Masukkan tebakanmu" min="1" max="100">
+    <button onclick="checkGuess()">Tebak</button>
+    <div class="message" id="message"></div>
+    <button onclick="resetGame()">Main Lagi</button>
 
-    <header>
-        <h1>Dashboard Pengguna</h1>
-    </header>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
 
-    <div class="container">
-        <h2>Profil Saya</h2>
-        <div class="profile-info">
-            <p><strong>Nama:</strong> Monica</p>
-            <p><strong>Email:</strong> monica@example.com</p>
-            <p><strong>Telepon:</strong> +62 123 456 7890</p>
-            <p><strong>Alamat:</strong> Jl. Contoh No.123, Jakarta, Indonesia</p>
-        </div>
-        
-        <div class="nav-links">
-            <a href="#">Edit Profil</a>
-            <a href="#">Pengaturan Akun</a>
-            <a href="#">Riwayat Aktivitas</a>
-            <a href="#">Keluar</a>
-        </div>
-    </div>
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('userGuess').value);
+            const message = document.getElementById('message');
+            attempts++;
 
+            if (userGuess === randomNumber) {
+                message.innerHTML = `Selamat! Angka yang benar adalah ${randomNumber}. Anda menebak dalam ${attempts} kali percobaan.`;
+            } else if (userGuess < randomNumber) {
+                message.innerHTML = 'Terlalu rendah! Coba lagi.';
+            } else if (userGuess > randomNumber) {
+                message.innerHTML = 'Terlalu tinggi! Coba lagi.';
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('userGuess').value = '';
+        }
+    </script>
 </body>
 </html>
