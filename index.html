@@ -3,79 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Tebak Angka</title>
+    <title>Toko Online Terbaik</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
             margin: 0;
-            text-align: center;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
             color: #333;
         }
-        input[type="number"] {
-            padding: 10px;
-            width: 80%;
-            max-width: 300px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .product p {
+            color: #666;
         }
-        button {
-            padding: 10px 15px;
+        .price {
+            font-size: 20px;
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #333;
             color: white;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
-        button:hover {
-            background-color: #45a049;
-        }
-        .message {
-            margin: 20px 0;
-            font-size: 18px;
+        @media (min-width: 600px) {
+            .product {
+                display: inline-block;
+                width: 30%;
+                margin: 1.5%;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Game Tebak Angka</h1>
-    <p>Tebak angka antara 1 dan 100!</p>
-    <input type="number" id="userGuess" placeholder="Masukkan tebakanmu" min="1" max="100">
-    <button onclick="checkGuess()">Tebak</button>
-    <div class="message" id="message"></div>
-    <button onclick="resetGame()">Main Lagi</button>
 
-    <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-        let attempts = 0;
+    <header>
+        <h1>Toko Online Terbaik</h1>
+        <p>Temukan produk terbaik untuk kebutuhan Anda!</p>
+    </header>
 
-        function checkGuess() {
-            const userGuess = Number(document.getElementById('userGuess').value);
-            const message = document.getElementById('message');
-            attempts++;
+    <div class="container">
+        <h2>Produk Terbaru</h2>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 1">
+            <h3>Nama Produk 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 100.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 2">
+            <h3>Nama Produk 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 200.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 3">
+            <h3>Nama Produk 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 300.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+        
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 4">
+            <h3>Nama Produk 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 150.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 5">
+            <h3>Nama Produk 5</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 250.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produk 6">
+            <h3>Nama Produk 6</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">Rp. 120.000</p>
+            <button>Beli Sekarang</button>
+        </div>
+    </div>
 
-            if (userGuess === randomNumber) {
-                message.innerHTML = `Selamat! Angka yang benar adalah ${randomNumber}. Anda menebak dalam ${attempts} kali percobaan.`;
-            } else if (userGuess < randomNumber) {
-                message.innerHTML = 'Terlalu rendah! Coba lagi.';
-            } else if (userGuess > randomNumber) {
-                message.innerHTML = 'Terlalu tinggi! Coba lagi.';
-            }
-        }
+    <footer>
+        <p>&copy; 2023 Toko Online Terbaik. Semua hak dilindungi.</p>
+    </footer>
 
-        function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById('message').innerHTML = '';
-            document.getElementById('userGuess').value = '';
-        }
-    </script>
 </body>
 </html>
