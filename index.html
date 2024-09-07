@@ -3,77 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Login</title>
+    <title>Dashboard Profil Pengguna</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
         }
-        .login-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
+        header {
             background-color: #4CAF50;
             color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .error-message {
-            color: red;
+            padding: 15px;
             text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .profile-info {
+            margin: 20px 0;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .nav-links {
+            margin-top: 30px;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Halaman Login</h1>
-        <form id="loginForm" onsubmit="return validateLogin()">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <div class="error-message" id="errorMessage"></div>
-        </form>
+
+    <header>
+        <h1>Dashboard Pengguna</h1>
+    </header>
+
+    <div class="container">
+        <h2>Profil Saya</h2>
+        <div class="profile-info">
+            <p><strong>Nama:</strong> Monica</p>
+            <p><strong>Email:</strong> monica@example.com</p>
+            <p><strong>Telepon:</strong> +62 123 456 7890</p>
+            <p><strong>Alamat:</strong> Jl. Contoh No.123, Jakarta, Indonesia</p>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#">Edit Profil</a>
+            <a href="#">Pengaturan Akun</a>
+            <a href="#">Riwayat Aktivitas</a>
+            <a href="#">Keluar</a>
+        </div>
     </div>
 
-    <script>
-        function validateLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (username === "admin" && password === "password123") {
-                alert("Login Berhasil!");
-                return true; // Ubah dengan penanganan login sesungguhnya
-            } else {
-                errorMessage.innerText = "Username atau Password Salah!";
-                return false; // Mencegah pengiriman form
-            }
-        }
-    </script>
 </body>
 </html>
