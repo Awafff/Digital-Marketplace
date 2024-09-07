@@ -1,84 +1,73 @@
-html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Tebak Angka</title>
+    <title>Tombol Geser</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
             margin: 20px;
+            background-color: #f4f4f4;
         }
         h1 {
             color: #333;
         }
-        .input-container {
+        .slider-container {
             margin: 20px 0;
         }
-        input[type="number"] {
-            padding: 10px;
-            width: 50px;
-        }
-        button {
-            padding: 10px 15px;
-            color: #fff;
-            background-color: #4CAF50;
-            border: none;
-            cursor: pointer;
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 15px;
+            background: #ddd;
             border-radius: 5px;
+            outline: none;
         }
-        button:hover {
-            background-color: #45a049;
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
         }
-        .message {
-            margin: 20px 0;
+        .slider::-moz-range-thumb {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        .value {
             font-size: 18px;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Game Tebak Angka</h1>
-        <p>Tebak angka antara 1 hingga 100!</p>
+        <h1>Tombol Geser Demo</h1>
     </header>
     <main>
-        <div class="input-container">
-            <input type="number" id="userGuess" min="1" max="100">
-            <button onclick="checkGuess()">Tebak</button>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" value="50" class="slider" id="mySlider">
+            <div class="value">Nilai: <span id="sliderValue">50</span></div>
         </div>
-        <div class="message" id="message"></div>
-        <button onclick="resetGame()">Main Lagi</button>
     </main>
     <footer>
         <p>&copy; 2023 Monica. Semua hak dilindungi.</p>
     </footer>
 
     <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-        let attempts = 0;
+        const slider = document.getElementById('mySlider');
+        const sliderValue = document.getElementById('sliderValue');
 
-        function checkGuess() {
-            const userGuess = Number(document.getElementById('userGuess').value);
-            const message = document.getElementById('message');
-            attempts++;
-
-            if (userGuess === randomNumber) {
-                message.innerHTML = `Selamat! Angka yang benar adalah ${randomNumber}. Anda menebak dalam ${attempts} kali percobaan.`;
-            } else if (userGuess < randomNumber) {
-                message.innerHTML = 'Terlalu rendah! Coba lagi.';
-            } else if (userGuess > randomNumber) {
-                message.innerHTML = 'Terlalu tinggi! Coba lagi.';
-            }
-        }
-
-        function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById('message').innerHTML = '';
-            document.getElementById('userGuess').value = '';
+        slider.oninput = function() {
+            sliderValue.innerHTML = this.value;
         }
     </script>
 </body>
