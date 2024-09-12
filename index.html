@@ -1,224 +1,145 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYREZZ STORE</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        .header .store-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .header .store-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .header .store-info .location {
-            font-size: 14px;
-            color: #888;
-        }
-
-        .search-bar {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .search-bar i {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 18px;
-            color: #888;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: 250px;
-            grid-gap: 20px;
-        }
-
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .product img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .product h3 {
-            margin: 0 0 5px 0;
-        }
-
-        .product p {
-            margin: 0;
-            font-size: 14px;
-            color: #888;
-        }
-
-        .product .add-to-cart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .product .add-to-cart i {
-            margin-right: 5px;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100vh;
-            background-color: #fff;
-            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .sidebar h2 {
-            margin-bottom: 20px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar a:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
+    <title>Responsive Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>XYREZZ STORE</h1>
-            <div class="store-info">
-                <img src="./logo.png" alt="Store Logo">
-                <div class="location">Lainnya</div>
-            </div>
-        </div>
+    <header>
+        <h1>Alex</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Cari Produk di XYREZZ STORE">
-            <i class="fas fa-search"></i>
-        </div>
+    <main>
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skill-grid">
+                <div class="skill">
+                    <img src="figma.svg" alt="Figma">
+                    <p>Figma</p>
+                </div>
+                <div class="skill">
+                    <img src="framer.svg" alt="Framer">
+                    <p>Framer</p>
+                </div>
+                <div class="skill">
+                    <img src="photoshop.svg" alt="Photoshop">
+                    <p>Photoshop</p>
+                </div>
+                <div class="skill">
+                    <img src="wordpress.svg" alt="WordPress">
+                    <p>WordPress</p>
+                </div>
+                <div class="skill">
+                    <img src="angular.svg" alt="Angular">
+                    <p>Angular</p>
+                </div>
+                <div class="skill">
+                    <img src="webflow.svg" alt="Webflow">
+                    <p>Webflow</p>
+                </div>
+                <div class="skill">
+                    <img src="python.svg" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="skill">
+                    <img src="sketch.svg" alt="Sketch">
+                    <p>Sketch</p>
+                </div>
+                <div class="skill">
+                    <img src="python.svg" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="skill">
+                    <img src="sketch.svg" alt="Sketch">
+                    <p>Sketch</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <h2>Semua Produk</h2>
-        <div class="products">
-            <div class="product">
-                <img src="./vps.png" alt="Product Image">
-                <h3>VPS RAM 1GB CORE 1</h3>
-                <p>RAM : 1000/1GB</p>
-                <p>DISK : 25000/25GB</p>
-                <p>CPU : 1 CORE</p>
-                <p>RP : 10.000</p>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i>
-                    <a herf="https://t.me/rerez_x_hosting">PESAN SEKARANG</a>
-                </button>
-            </div>
-            <div class="product">
-                <img src="./vps.png" alt="Product Image">
-                <h3>VPS RAM 2GB CORE 1</h3>
-                <p>RAM : 2000/2GB</p>
-                <p>DISK : 50000/50GB</p>
-                <p>CPU : 1 CORE</p>
-                <p>RP : 15.000</p>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i>
-                    <a herf="https://t.me/rerez_x_hosting">PESAN SEKARANG</a>
-                </button>
-                        <div class="products">
-            <div class="product">
-                <img src="./vps.png" alt="Product Image">
-                <h3>VPS RAM 2GB CORE 2</h3>
-                <p>RAM : 2000/2GB</p>
-                <p>DISK : 60000/60GB</p>
-                <p>CPU : 2 CORE</p>
-                <p>RP : 20.000</p>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i>
-                    <a herf="https://t.me/rerez_x_hosting">PESAN SEKARANG</a>
-                </button>
-            </div>
-            <div class="product">
-                <img src="./vps.png" alt="Product Image">
-                <h3>VPS RAM 4GB CORE 2</h3>
-                <p>RAM : 4000/4GB</p>
-                <p>DISK : 80000/80GB</p>
-                <p>CPU : 2 CORE</p>
-                <p>RP : 30.000</p>
-                <button class="add-to-cart">
-                    <i class="fas fa-cart-plus"></i>
-                    <a herf="https://t.me/rerez_x_hosting">PESAN SEKARANG</a>
-                </button>
-                
-            </div>
-        </div>
-    </div>
-
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+    <footer>
+        <p>SOURCE CODE - Link in Description Free Download</p>
+    </footer>
 </body>
-        </html>
+</html>
+```
+
+```css
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.skills {
+    text-align: center;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skill img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
