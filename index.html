@@ -1,97 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-    <marquee backgroun-collor="black"behavior="" direction="left">WELCOM TO DIGITAL MARKETPLACE ALWAYS XYREZZ OFFICIAL</marquee>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-        content="width=device-width,
-        initial-scale=1.0">
-        <title>TOKO ALWAYS XYREZ</title>
-        <style>
-            body{
-                display: flex;
-                justify-conter:center ;
-                align-items: center;height: 100vh;
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                height: 100%;
-            }
-            .button{
-                padding: 5px 5px ;
-                background-color: white;
-                color: black;
-                border: black;
-                boreder-radius: 5px;
-                cursor: pointer;
-            }
-            header{
-                background-color: #333;
-                padding: 20px 20px;
-            }
-            nav{
-                display: flex;
-                justify-content: space-between;
-            }
-            nav a{
-                color: white;
-                text-decoration: none;
-                padding: 15px 15px;
-                transition: background-color 0.3s;
-            }
-            nav a:hover{
-                background-color: #575757;
-            }
-            .search-input {
-                padding: 10px;
-                font-size: 16px;
-                border: 1px solid #ccc;
-                boreder-radius: 5px;
-                margin-right: 5px;
-                flex: 1;
-            }
-            .search-button {
-                padding: 10px 20px;
-                background-color: none;
-                color: white;
-                border: white;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .search-buton:hover {
-                background-color: none;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <div id="content" style="padding: 20px;">
-            <h1>TOKO ONLINE REREZ HOSTING</h1>
-            <p>KAMI MENYEDIAKAN SEMUA KEBUTUHAN BOT WHATSAPP</p>
-        </div>
-        <form class="d-flex search-form container" role="search" onsubmit="event.preventDefault(); searchProducts(this.query.value);">
-            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
-            <button class="btn btn-success" type="submit">Search</button>
-            <button class="btn btn-danger search-close d-none" id="closeSearch" onclick="reset()">🔎</button>
-        </form>
-        </div>
-        <header>
-            <button class="button">
-                <a href="#">ALL</a>
-            </button>
-            <button class="button">
-                <a href="#">DIGITAL OCEAN</a>
-            </button>
-            <button class="button">
-                <a href="#">VPS</a>
-            </button>
-            <button class="button">
-                <a href="#">PANEL</a>
-            </button>
-            <button class="button">
-                <a href="#">SCRIPT</a>
-            </button>
-        </header>
-    </body>
-</html>
+<!-- Load Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Buttons to choose list or grid view -->
+<button onclick="listView()"><i class="fa fa-bars"></i> List</button>
+<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Column 1</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#ccc;">
+    <h2>Column 3</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#ddd;">
+    <h2>Column 4</h2>
+    <p>Some text..</p>
+  </div>
+</div>
