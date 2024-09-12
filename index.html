@@ -1,127 +1,97 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Online Terbaik</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .product {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            transition: transform 0.3s;
-        }
-        .product:hover {
-            transform: scale(1.05);
-        }
-        img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .product h3 {
-            color: #333;
-        }
-        .product p {
-            color: #666;
-        }
-        .price {
-            font-size: 20px;
-            color: #4CAF50;
-        }
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            background-color: #333;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        @media (min-width: 600px) {
-            .product {
-                display: inline-block;
-                width: 30%;
-                margin: 1.5%;
+<html lang="en">
+    <marquee backgroun-collor="black"behavior="" direction="left">WELCOM TO DIGITAL MARKETPLACE ALWAYS XYREZZ OFFICIAL</marquee>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+        <title>TOKO ALWAYS XYREZ</title>
+        <style>
+            body{
+                display: flex;
+                justify-conter:center ;
+                align-items: center;height: 100vh;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
             }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Toko Online Terbaik</h1>
-        <p>Temukan produk terbaik untuk kebutuhan Anda!</p>
-    </header>
-
-    <div class="container">
-        <h2>Produk Terbaru</h2>
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 1">
-            <h3>Nama Produk 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 100.000</p>
-            <button>Beli Sekarang</button>
+            .button{
+                padding: 5px 5px ;
+                background-color: white;
+                color: black;
+                border: black;
+                boreder-radius: 5px;
+                cursor: pointer;
+            }
+            header{
+                background-color: #333;
+                padding: 20px 20px;
+            }
+            nav{
+                display: flex;
+                justify-content: space-between;
+            }
+            nav a{
+                color: white;
+                text-decoration: none;
+                padding: 15px 15px;
+                transition: background-color 0.3s;
+            }
+            nav a:hover{
+                background-color: #575757;
+            }
+            .search-input {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                boreder-radius: 5px;
+                margin-right: 5px;
+                flex: 1;
+            }
+            .search-button {
+                padding: 10px 20px;
+                background-color: none;
+                color: white;
+                border: white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .search-buton:hover {
+                background-color: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="content" style="padding: 20px;">
+            <h1>TOKO ONLINE REREZ HOSTING</h1>
+            <p>KAMI MENYEDIAKAN SEMUA KEBUTUHAN BOT WHATSAPP</p>
         </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 2">
-            <h3>Nama Produk 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 200.000</p>
-            <button>Beli Sekarang</button>
+        <form class="d-flex search-form container" role="search" onsubmit="event.preventDefault(); searchProducts(this.query.value);">
+            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
+            <button class="btn btn-success" type="submit">Search</button>
+            <button class="btn btn-danger search-close d-none" id="closeSearch" onclick="reset()">🔎</button>
+        </form>
         </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 3">
-            <h3>Nama Produk 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 300.000</p>
-            <button>Beli Sekarang</button>
-        </div>
-        
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 4">
-            <h3>Nama Produk 4</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 150.000</p>
-            <button>Beli Sekarang</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 5">
-            <h3>Nama Produk 5</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 250.000</p>
-            <button>Beli Sekarang</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Produk 6">
-            <h3>Nama Produk 6</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="price">Rp. 120.000</p>
-            <button>Beli Sekarang</button>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2023 Toko Online Terbaik. Semua hak dilindungi.</p>
-    </footer>
-
-</body>
+        <header>
+            <button class="button">
+                <a href="#">ALL</a>
+            </button>
+            <button class="button">
+                <a href="#">DIGITAL OCEAN</a>
+            </button>
+            <button class="button">
+                <a href="#">VPS</a>
+            </button>
+            <button class="button">
+                <a href="#">PANEL</a>
+            </button>
+            <button class="button">
+                <a href="#">SCRIPT</a>
+            </button>
+        </header>
+    </body>
 </html>
