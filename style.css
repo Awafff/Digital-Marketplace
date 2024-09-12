@@ -47,6 +47,12 @@ main {
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
+    text-align: center;
+}
+.textl {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
     text-align: left;
 }
 
