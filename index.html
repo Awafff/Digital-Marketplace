@@ -1,57 +1,206 @@
-<class>
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYREZZ STORE</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</class>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-<!-- Buttons to choose list or grid view -->
-<button onclick="listView()"><i class="fa fa-bars"></i> List</button>
-<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-<div class="row">
-  <div class="column" style="background-color:#aaa;">
-    <h2>Column 1</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style="background-color:#bbb;">
-    <h2>Column 2</h2>
-    <p>Some text..</p>
-  </div>
-</div>
+        .header h1 {
+            margin: 0;
+        }
 
-<div class="row">
-  <div class="column" style="background-color:#ccc;">
-    <h2>Column 3</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style="background-color:#ddd;">
-    <h2>Column 4</h2>
-    <p>Some text..</p>
-  </div>
-</div>
+        .header .store-info {
+            display: flex;
+            align-items: center;
+        }
 
-var elements = document.getElementsByClassName("column");
+        .header .store-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
 
-var i;
+        .header .store-info .location {
+            font-size: 14px;
+            color: #888;
+        }
 
-function listView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "100%";
-  }
-}
+        .search-bar {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-function gridView() {
-  for (i = 0; i < elements.length; i++) {
-    elements[i].style.width = "50%";
-  }
-}
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 18px;
+            color: #888;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .product p {
+            margin: 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .product .add-to-cart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product .add-to-cart i {
+            margin-right: 5px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>XYREZZ STORE</h1>
+            <div class="store-info">
+                <img src="https://via.placeholder.com/50" alt="Store Logo">
+                <div class="location">Lainnya</div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Cari Produk di XYREZZ STORE">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <h2>Semua Produk</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://via.placeholder.com/250" alt="Product Image">
+                <h3>VPS</h3>
+                <p>Rp10.000</p>
+                <p>VPS DIGITAL OCEAN</p>
+                <p>RAM 1GB CORE 1</p>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart
+                </button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250" alt="Product Image">
+                <h3>VPS</h3>
+                <p>Rp10.000</p>
+                <p>VPS DIGITAL OCEAN</p>
+                <button class="add-to-cart">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Categories</h2>
+        <ul>
+            <li><a href="#">VPS</a></li>
+            <li><a href="#">Domain</a></li>
+            <li><a href="#">Hosting</a></li>
+            <li><a href="#">Other Services</a></li>
+        </ul>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+</body>
+</html>
